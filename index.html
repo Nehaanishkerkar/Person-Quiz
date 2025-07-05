@@ -1,0 +1,1123 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Persona Quiz</title>
+  <style>
+    body { font-family: sans-serif; background: #f5f5f5; margin: 0; padding: 0; }
+    .container { max-width: 600px; margin: auto; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    h1, h2 { text-align: center; }
+    .question { margin: 20px 0; }
+    .options button {
+      display: block; width: 100%; margin: 10px 0; padding: 10px;
+      background: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer;
+    }
+    .options button:hover { background: #0056b3; }
+    .result { display: none; text-align: center; }
+    .start-btn {
+      display: block; margin: 20px auto; padding: 10px 20px;
+      background: #28a745; color: white; border: none;
+      border-radius: 5px; font-size: 18px; cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Persona Quiz</h1>
+    <div id="quiz">
+      <div id="start-screen">
+        <p>Discover your personality and ideal career path based on 101 insightful scenarios.</p>
+        <button class="start-btn" onclick="startQuiz()">Start Quiz</button>
+      </div>
+      <div id="question-container" class="question" style="display:none">
+        <h2 id="question-text"></h2>
+        <div class="options" id="options"></div>
+      </div>
+      <div id="result" class="result"></div>
+    </div>
+  </div>
+
+  <script>
+    const questions = [
+
+      {
+        text: "Scenario 1: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 2: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 3: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 4: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 5: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 6: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 7: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 8: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 9: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 10: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 11: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 12: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 13: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 14: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 15: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 16: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 17: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 18: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 19: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 20: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 21: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 22: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 23: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 24: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 25: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 26: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 27: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 28: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 29: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 30: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 31: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 32: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 33: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 34: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 35: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 36: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 37: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 38: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 39: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 40: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 41: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 42: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 43: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 44: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 45: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 46: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 47: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 48: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 49: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 50: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 51: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 52: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 53: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 54: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 55: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 56: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 57: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 58: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 59: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 60: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 61: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 62: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 63: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 64: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 65: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 66: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 67: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 68: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 69: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 70: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 71: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 72: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 73: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 74: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 75: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 76: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 77: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 78: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 79: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 80: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 81: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 82: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 83: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 84: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 85: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 86: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 87: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 88: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 89: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 90: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 91: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 92: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 93: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 94: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 95: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 96: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 97: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 98: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 99: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 100: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+      {
+        text: "Scenario 101: What would you do in this situation?",
+        options: [
+          { text: "Option A", score: { leader: 1 } },
+          { text: "Option B", score: { thinker: 1 } },
+          { text: "Option C", score: { empath: 1 } },
+          { text: "Option D", score: { visionary: 1 } }
+        ]
+      },
+    
+    ];
+
+    let currentQuestion = 0;
+    let scores = { leader: 0, thinker: 0, empath: 0, visionary: 0 };
+
+    function startQuiz() {
+      document.getElementById('start-screen').style.display = 'none';
+      document.getElementById('question-container').style.display = 'block';
+      showQuestion();
+    }
+
+    function showQuestion() {
+      const q = questions[currentQuestion];
+      document.getElementById('question-text').textContent = `Q${currentQuestion + 1}: ${q.text}`;
+      const optionsDiv = document.getElementById('options');
+      optionsDiv.innerHTML = '';
+      q.options.forEach(option => {
+        const btn = document.createElement('button');
+        btn.textContent = option.text;
+        btn.onclick = () => selectOption(option.score);
+        optionsDiv.appendChild(btn);
+      });
+    }
+
+    function selectOption(score) {
+      for (let type in score) {
+        scores[type] += score[type];
+      }
+      currentQuestion++;
+      if (currentQuestion < questions.length) {
+        showQuestion();
+      } else {
+        showResult();
+      }
+    }
+
+    function showResult() {
+      document.getElementById('question-container').style.display = 'none';
+      const resultDiv = document.getElementById('result');
+      resultDiv.style.display = 'block';
+
+      const topTrait = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+      let persona = '';
+      let careers = '';
+
+      switch (topTrait) {
+        case 'leader':
+          persona = "The Strategic Leader";
+          careers = "CEO, Project Manager, Entrepreneur";
+          break;
+        case 'thinker':
+          persona = "The Analytical Thinker";
+          careers = "Scientist, Data Analyst, Engineer";
+          break;
+        case 'empath':
+          persona = "The Compassionate Connector";
+          careers = "Counselor, Teacher, HR Specialist";
+          break;
+        case 'visionary':
+          persona = "The Innovative Visionary";
+          careers = "Designer, Inventor, Creative Director";
+          break;
+      }
+
+      resultDiv.innerHTML = `<h2>Your Persona: ${persona}</h2><p>Suggested Careers: ${careers}</p><button class="start-btn" onclick="location.reload()">Retake Quiz</button>`;
+    }
+  </script>
+</body>
+</html>
