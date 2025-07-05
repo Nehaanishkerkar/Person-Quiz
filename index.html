@@ -3,24 +3,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Persona Quiz</title>
   <style>
-    body { font-family: sans-serif; background: #f5f5f5; margin: 0; padding: 0; }
-    .container { max-width: 600px; margin: auto; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    body { font-family: sans-serif; background: #f0f0f0; }
+    .container { max-width: 700px; margin: auto; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
     h1, h2 { text-align: center; }
     .question { margin: 20px 0; }
     .options button {
-      display: block; width: 100%; margin: 10px 0; padding: 10px;
-      background: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer;
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      background: #007bff;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
     }
     .options button:hover { background: #0056b3; }
-    .result { display: none; text-align: center; }
     .start-btn {
       display: block; margin: 20px auto; padding: 10px 20px;
       background: #28a745; color: white; border: none;
       border-radius: 5px; font-size: 18px; cursor: pointer;
     }
+    .result { display: none; text-align: center; }
   </style>
 </head>
 <body>
@@ -28,7 +35,7 @@
     <h1>Persona Quiz</h1>
     <div id="quiz">
       <div id="start-screen">
-        <p>Discover your personality and ideal career path based on 101 insightful scenarios.</p>
+        <p>Discover your personality and ideal career path based on 101 scenario-based questions.</p>
         <button class="start-btn" onclick="startQuiz()">Start Quiz</button>
       </div>
       <div id="question-container" class="question" style="display:none">
@@ -38,1021 +45,919 @@
       <div id="result" class="result"></div>
     </div>
   </div>
-
   <script>
     const questions = [
+  {
+    text: "You are faced with situation #1. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #2. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #3. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #4. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #5. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #6. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #7. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #8. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #9. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #10. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #11. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #12. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #13. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #14. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #15. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #16. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #17. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #18. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #19. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #20. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #21. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #22. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #23. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #24. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #25. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #26. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #27. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #28. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #29. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #30. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #31. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #32. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #33. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #34. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #35. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #36. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #37. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #38. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #39. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #40. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #41. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #42. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #43. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #44. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #45. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #46. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #47. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #48. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #49. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #50. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #51. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #52. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #53. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #54. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #55. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #56. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #57. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #58. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #59. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #60. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #61. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #62. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #63. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #64. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #65. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #66. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #67. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #68. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #69. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #70. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #71. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #72. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #73. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #74. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #75. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #76. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #77. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #78. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #79. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #80. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #81. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #82. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #83. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #84. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #85. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #86. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #87. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #88. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #89. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #90. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #91. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #92. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #93. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #94. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #95. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #96. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #97. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #98. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #99. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #100. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+  {
+    text: "You are faced with situation #101. What do you do?",
+    options: [
+      { text: "Take charge and lead others", score: { leader: 1 } },
+      { text: "Analyze the situation logically", score: { thinker: 1 } },
+      { text: "Listen to everyone's feelings", score: { empath: 1 } },
+      { text: "Think of an unconventional idea", score: { visionary: 1 } }
+    ]
+  },
+];
 
-      {
-        text: "Scenario 1: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 2: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 3: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 4: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 5: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 6: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 7: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 8: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 9: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 10: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 11: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 12: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 13: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 14: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 15: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 16: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 17: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 18: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 19: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 20: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 21: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 22: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 23: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 24: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 25: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 26: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 27: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 28: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 29: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 30: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 31: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 32: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 33: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 34: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 35: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 36: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 37: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 38: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 39: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 40: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 41: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 42: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 43: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 44: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 45: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 46: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 47: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 48: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 49: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 50: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 51: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 52: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 53: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 54: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 55: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 56: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 57: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 58: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 59: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 60: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 61: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 62: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 63: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 64: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 65: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 66: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 67: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 68: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 69: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 70: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 71: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 72: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 73: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 74: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 75: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 76: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 77: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 78: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 79: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 80: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 81: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 82: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 83: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 84: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 85: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 86: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 87: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 88: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 89: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 90: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 91: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 92: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 93: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 94: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 95: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 96: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 97: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 98: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 99: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 100: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-      {
-        text: "Scenario 101: What would you do in this situation?",
-        options: [
-          { text: "Option A", score: { leader: 1 } },
-          { text: "Option B", score: { thinker: 1 } },
-          { text: "Option C", score: { empath: 1 } },
-          { text: "Option D", score: { visionary: 1 } }
-        ]
-      },
-    
-    ];
 
     let currentQuestion = 0;
     let scores = { leader: 0, thinker: 0, empath: 0, visionary: 0 };
@@ -1092,7 +997,6 @@
       document.getElementById('question-container').style.display = 'none';
       const resultDiv = document.getElementById('result');
       resultDiv.style.display = 'block';
-
       const topTrait = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
       let persona = '';
       let careers = '';
